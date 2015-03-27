@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECE47B2B1AC5A7F8000FF7C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B2A1AC5A7F8000FF7C5 /* AppDelegate.swift */; };
+		ECE47B2D1AC5A7F8000FF7C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B2C1AC5A7F8000FF7C5 /* ViewController.swift */; };
+		ECE47B301AC5A7F8000FF7C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE47B2E1AC5A7F8000FF7C5 /* Main.storyboard */; };
+		ECE47B321AC5A7F8000FF7C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE47B311AC5A7F8000FF7C5 /* Images.xcassets */; };
+		ECE47B351AC5A7F8000FF7C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE47B331AC5A7F8000FF7C5 /* LaunchScreen.xib */; };
+		ECE47B411AC5A7F8000FF7C5 /* FiveOClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B401AC5A7F8000FF7C5 /* FiveOClockTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECE47B3B1AC5A7F8000FF7C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE47B1D1AC5A7F8000FF7C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECE47B241AC5A7F8000FF7C5;
+			remoteInfo = FiveOClock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ECE47B251AC5A7F8000FF7C5 /* FiveOClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiveOClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE47B291AC5A7F8000FF7C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECE47B2A1AC5A7F8000FF7C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECE47B2C1AC5A7F8000FF7C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECE47B2F1AC5A7F8000FF7C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECE47B311AC5A7F8000FF7C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECE47B341AC5A7F8000FF7C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ECE47B3A1AC5A7F8000FF7C5 /* FiveOClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiveOClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE47B3F1AC5A7F8000FF7C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECE47B401AC5A7F8000FF7C5 /* FiveOClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveOClockTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECE47B221AC5A7F8000FF7C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE47B371AC5A7F8000FF7C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECE47B1C1AC5A7F8000FF7C5 = {
+			isa = PBXGroup;
+			children = (
+				ECE47B271AC5A7F8000FF7C5 /* FiveOClock */,
+				ECE47B3D1AC5A7F8000FF7C5 /* FiveOClockTests */,
+				ECE47B261AC5A7F8000FF7C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECE47B261AC5A7F8000FF7C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECE47B251AC5A7F8000FF7C5 /* FiveOClock.app */,
+				ECE47B3A1AC5A7F8000FF7C5 /* FiveOClockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECE47B271AC5A7F8000FF7C5 /* FiveOClock */ = {
+			isa = PBXGroup;
+			children = (
+				ECE47B2A1AC5A7F8000FF7C5 /* AppDelegate.swift */,
+				ECE47B2C1AC5A7F8000FF7C5 /* ViewController.swift */,
+				ECE47B2E1AC5A7F8000FF7C5 /* Main.storyboard */,
+				ECE47B311AC5A7F8000FF7C5 /* Images.xcassets */,
+				ECE47B331AC5A7F8000FF7C5 /* LaunchScreen.xib */,
+				ECE47B281AC5A7F8000FF7C5 /* Supporting Files */,
+			);
+			path = FiveOClock;
+			sourceTree = "<group>";
+		};
+		ECE47B281AC5A7F8000FF7C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECE47B291AC5A7F8000FF7C5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECE47B3D1AC5A7F8000FF7C5 /* FiveOClockTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECE47B401AC5A7F8000FF7C5 /* FiveOClockTests.swift */,
+				ECE47B3E1AC5A7F8000FF7C5 /* Supporting Files */,
+			);
+			path = FiveOClockTests;
+			sourceTree = "<group>";
+		};
+		ECE47B3E1AC5A7F8000FF7C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECE47B3F1AC5A7F8000FF7C5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECE47B241AC5A7F8000FF7C5 /* FiveOClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECE47B441AC5A7F8000FF7C5 /* Build configuration list for PBXNativeTarget "FiveOClock" */;
+			buildPhases = (
+				ECE47B211AC5A7F8000FF7C5 /* Sources */,
+				ECE47B221AC5A7F8000FF7C5 /* Frameworks */,
+				ECE47B231AC5A7F8000FF7C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FiveOClock;
+			productName = FiveOClock;
+			productReference = ECE47B251AC5A7F8000FF7C5 /* FiveOClock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECE47B391AC5A7F8000FF7C5 /* FiveOClockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECE47B471AC5A7F8000FF7C5 /* Build configuration list for PBXNativeTarget "FiveOClockTests" */;
+			buildPhases = (
+				ECE47B361AC5A7F8000FF7C5 /* Sources */,
+				ECE47B371AC5A7F8000FF7C5 /* Frameworks */,
+				ECE47B381AC5A7F8000FF7C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECE47B3C1AC5A7F8000FF7C5 /* PBXTargetDependency */,
+			);
+			name = FiveOClockTests;
+			productName = FiveOClockTests;
+			productReference = ECE47B3A1AC5A7F8000FF7C5 /* FiveOClockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECE47B1D1AC5A7F8000FF7C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Proximity Viz LLC";
+				TargetAttributes = {
+					ECE47B241AC5A7F8000FF7C5 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					ECE47B391AC5A7F8000FF7C5 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = ECE47B241AC5A7F8000FF7C5;
+					};
+				};
+			};
+			buildConfigurationList = ECE47B201AC5A7F8000FF7C5 /* Build configuration list for PBXProject "FiveOClock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECE47B1C1AC5A7F8000FF7C5;
+			productRefGroup = ECE47B261AC5A7F8000FF7C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECE47B241AC5A7F8000FF7C5 /* FiveOClock */,
+				ECE47B391AC5A7F8000FF7C5 /* FiveOClockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECE47B231AC5A7F8000FF7C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE47B301AC5A7F8000FF7C5 /* Main.storyboard in Resources */,
+				ECE47B351AC5A7F8000FF7C5 /* LaunchScreen.xib in Resources */,
+				ECE47B321AC5A7F8000FF7C5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE47B381AC5A7F8000FF7C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECE47B211AC5A7F8000FF7C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE47B2D1AC5A7F8000FF7C5 /* ViewController.swift in Sources */,
+				ECE47B2B1AC5A7F8000FF7C5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE47B361AC5A7F8000FF7C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE47B411AC5A7F8000FF7C5 /* FiveOClockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECE47B3C1AC5A7F8000FF7C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECE47B241AC5A7F8000FF7C5 /* FiveOClock */;
+			targetProxy = ECE47B3B1AC5A7F8000FF7C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECE47B2E1AC5A7F8000FF7C5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECE47B2F1AC5A7F8000FF7C5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECE47B331AC5A7F8000FF7C5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECE47B341AC5A7F8000FF7C5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECE47B421AC5A7F8000FF7C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECE47B431AC5A7F8000FF7C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECE47B451AC5A7F8000FF7C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FiveOClock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECE47B461AC5A7F8000FF7C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FiveOClock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ECE47B481AC5A7F8000FF7C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FiveOClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FiveOClock.app/FiveOClock";
+			};
+			name = Debug;
+		};
+		ECE47B491AC5A7F8000FF7C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FiveOClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FiveOClock.app/FiveOClock";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECE47B201AC5A7F8000FF7C5 /* Build configuration list for PBXProject "FiveOClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE47B421AC5A7F8000FF7C5 /* Debug */,
+				ECE47B431AC5A7F8000FF7C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECE47B441AC5A7F8000FF7C5 /* Build configuration list for PBXNativeTarget "FiveOClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE47B451AC5A7F8000FF7C5 /* Debug */,
+				ECE47B461AC5A7F8000FF7C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ECE47B471AC5A7F8000FF7C5 /* Build configuration list for PBXNativeTarget "FiveOClockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE47B481AC5A7F8000FF7C5 /* Debug */,
+				ECE47B491AC5A7F8000FF7C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECE47B1D1AC5A7F8000FF7C5 /* Project object */;
+}
