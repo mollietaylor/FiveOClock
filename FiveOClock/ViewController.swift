@@ -16,12 +16,62 @@ class ViewController: UIViewController {
     var afterFiveArray = [[String:AnyObject]]()
     var afterFiveCount = 0
     var i = 0
+    
+    var resetHour:String!
+    var resetDay:String!
+    var currentHour:String!
+    var currentDay:String!
 
+    @IBOutlet weak var grabADrinkLabel: UILabel!
+    @IBOutlet weak var itsLabel: UILabel!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if view.frame.height < 568 {
+            grabADrinkLabel.hidden = true
+            itsLabel.text = "Grab a drink! It's"
+        }
+        
+        refreshTimeZoneData()
+        refresh(self)
+        
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
+        return UIStatusBarStyle.LightContent
+    }
+    
+    func getHour() -> String {
+        
+        let hour = NSDateFormatter()
+        hour.dateFormat = "HH" // 24-hour time
+        let thisHour = hour.stringFromDate(NSDate())
+        
+        return thisHour
+    }
+    
+    func getDay() -> String {
+        
+        let day = NSDateFormatter()
+        day.dateStyle = NSDateFormatterStyle.ShortStyle
+        let thisDay = day.stringFromDate(NSDate())
+        
+        return thisDay
+    }
+    
+    func refreshTimeZoneData() {
+        
+        resetHour = getHour()
+        resetDay = getDay()
+        
+        timeZonesWithTimes.removeAll()
+        afterFiveArray.removeAll()
+        afterFiveCount = 0
+        i = 0
         
         for zone in timeZones {
             
@@ -29,7 +79,7 @@ class ViewController: UIViewController {
             
             let rawDate = NSDateFormatter()
             rawDate.timeZone = NSTimeZone(name: zoneName)
-            rawDate.dateFormat = "HH"
+            rawDate.dateFormat = "HH" // 24-hour time
             
             let formatter = NSDateFormatter()
             formatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -48,22 +98,32 @@ class ViewController: UIViewController {
             
         }
         
-        println(afterFiveArray)
-        
-        refresh(self)
-        
     }
     
     @IBAction func refresh(sender: AnyObject) {
+        
+        currentHour = getHour()
+        currentDay = getDay()
+        println(resetHour)
+        println(resetDay)
+        println(currentHour)
+        println(currentDay)
+        
+        // if local hour or day has changed since last refreshTimeZoneData(), run it
+        if currentDay != resetDay || currentHour != resetHour {
+            println("refresh time zone data")
+            refreshTimeZoneData()
+        }
+        
+        let minutes = NSDateFormatter()
+        minutes.dateFormat = "mm"
         
         let randomIndex = arc4random_uniform(UInt32(afterFiveArray.count))
         let randomItem = afterFiveArray[Int(randomIndex)]
         
         label.text = randomItem["city"] as? String
-        let timeString = randomItem["time"] as? String
-        if let timeText = timeString?.componentsSeparatedByString(" ") {
-            timeLabel.text = timeText[0]
-        }
+        // TODO: make sure this works right when minutes begins with 0
+        timeLabel.text = "5:\(minutes.stringFromDate(NSDate()))"
         
     }
 
