@@ -104,26 +104,23 @@ class ViewController: UIViewController {
         
         currentHour = getHour()
         currentDay = getDay()
-        println(resetHour)
-        println(resetDay)
-        println(currentHour)
-        println(currentDay)
         
         // if local hour or day has changed since last refreshTimeZoneData(), run it
         if currentDay != resetDay || currentHour != resetHour {
-            println("refresh time zone data")
             refreshTimeZoneData()
         }
-        
-        let minutes = NSDateFormatter()
-        minutes.dateFormat = "mm"
         
         let randomIndex = arc4random_uniform(UInt32(afterFiveArray.count))
         let randomItem = afterFiveArray[Int(randomIndex)]
         
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        let zoneName = randomItem["name"] as String
+        formatter.timeZone = NSTimeZone(name: zoneName)
+        formatter.dateFormat = "mm"
+        
         label.text = randomItem["city"] as? String
-        // TODO: make sure this works right when minutes begins with 0
-        timeLabel.text = "5:\(minutes.stringFromDate(NSDate()))"
+        timeLabel.text = "5:\(formatter.stringFromDate(NSDate()))"
         
     }
 
