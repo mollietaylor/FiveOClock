@@ -7,10 +7,20 @@
 //
 
 import UIKit
+import iAd
 
-// TODO: after 60 seconds, reload (label only) to show new time
+//func adBanner() -> ADBannerView {
+//    
+//    // TODO: maybe move this down into bannerViewDidLoadAd?
+//    var adBanner = ADBannerView(adType: ADAdType.Banner)
+//    
+//    adBanner.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 66)
+//    
+//    return adBanner
+//    
+//}
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ADBannerViewDelegate {
     
     var timeZonesWithTimes = [[String:AnyObject]]()
     var afterFiveArray = [[String:AnyObject]]()
@@ -22,18 +32,31 @@ class ViewController: UIViewController {
     var currentHour:String!
     var currentDay:String!
 
+    @IBOutlet weak var adBanner: ADBannerView!
     @IBOutlet weak var grabADrinkLabel: UILabel!
     @IBOutlet weak var itsLabel: UILabel!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var grabConstraint: NSLayoutConstraint!
+    @IBOutlet weak var itsConstraint: NSLayoutConstraint!
+    
+    var grabConstraintDefault:CGFloat = 0
+    var itsConstraintDefault:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(adBanner)
+        adBanner.delegate = self
+        
         if view.frame.height < 568 {
             grabADrinkLabel.hidden = true
             itsLabel.text = "Grab a drink! It's"
+            itsConstraint.constant -= 51
         }
+        
+        grabConstraintDefault = grabConstraint.constant
+        itsConstraintDefault = itsConstraint.constant
         
         refreshTimeZoneData()
         refresh(self)
@@ -121,6 +144,61 @@ class ViewController: UIViewController {
         
         label.text = randomItem["city"] as? String
         timeLabel.text = "5:\(formatter.stringFromDate(NSDate()))"
+        
+    }
+    
+    func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
+        return true
+    }
+    
+    // TODO: inside here, move banner down into view
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        layoutAnimated(true)
+    }
+    
+    // TODO: figure out why this function isn't getting called
+    // TODO: inside here, move banner out of view
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        
+        println("failed to receive ad")
+        println(error)
+        layoutAnimated(true)
+        
+    }
+    
+    func layoutAnimated(animated: Bool) {
+        
+        let contentFrame = view.bounds
+        let bannerFrame = adBanner.frame
+        
+        if adBanner.bannerLoaded {
+            
+            adBanner.hidden = false
+            
+            UIView.animateWithDuration(animated ? 0.25 : 0.0, animations: { () -> Void in
+                
+                self.adBanner.frame.origin.y = UIApplication.sharedApplication().statusBarFrame.height
+                self.grabConstraint.constant = self.grabConstraintDefault
+                self.itsConstraint.constant = self.itsConstraintDefault
+                
+            })
+            
+        } else {
+            
+            UIView.animateWithDuration(animated ? 0.5 : 0.0, animations: { () -> Void in
+                
+                println("banner not loaded")
+                
+                self.adBanner.frame.origin.y = -(self.adBanner.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
+                self.grabConstraint.constant = self.grabConstraintDefault - self.adBanner.frame.height
+                self.itsConstraint.constant = self.itsConstraintDefault - self.adBanner.frame.height
+                
+            })
+            
+            adBanner.hidden = true
+            
+        }
+        
         
     }
 
