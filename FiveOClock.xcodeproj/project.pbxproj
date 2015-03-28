@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC8EFD3D1AC637F000C0CC39 /* Cubano-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC8EFD3C1AC637F000C0CC39 /* Cubano-Regular.otf */; };
+		ECB208031AC5EE2F002A2D09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB208021AC5EE2F002A2D09 /* ViewController.swift */; };
 		ECE47B2B1AC5A7F8000FF7C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B2A1AC5A7F8000FF7C5 /* AppDelegate.swift */; };
-		ECE47B2D1AC5A7F8000FF7C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B2C1AC5A7F8000FF7C5 /* ViewController.swift */; };
 		ECE47B301AC5A7F8000FF7C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE47B2E1AC5A7F8000FF7C5 /* Main.storyboard */; };
 		ECE47B321AC5A7F8000FF7C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE47B311AC5A7F8000FF7C5 /* Images.xcassets */; };
 		ECE47B351AC5A7F8000FF7C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE47B331AC5A7F8000FF7C5 /* LaunchScreen.xib */; };
 		ECE47B411AC5A7F8000FF7C5 /* FiveOClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B401AC5A7F8000FF7C5 /* FiveOClockTests.swift */; };
+		ECE47B4B1AC5A8FF000FF7C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE47B4A1AC5A8FF000FF7C5 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +28,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC8EFD3C1AC637F000C0CC39 /* Cubano-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cubano-Regular.otf"; sourceTree = "<group>"; };
+		ECB208021AC5EE2F002A2D09 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECE47B251AC5A7F8000FF7C5 /* FiveOClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiveOClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE47B291AC5A7F8000FF7C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECE47B2A1AC5A7F8000FF7C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECE47B2C1AC5A7F8000FF7C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECE47B2F1AC5A7F8000FF7C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECE47B311AC5A7F8000FF7C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ECE47B341AC5A7F8000FF7C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ECE47B3A1AC5A7F8000FF7C5 /* FiveOClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiveOClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE47B3F1AC5A7F8000FF7C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECE47B401AC5A7F8000FF7C5 /* FiveOClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveOClockTests.swift; sourceTree = "<group>"; };
+		ECE47B4A1AC5A8FF000FF7C5 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 				ECE47B271AC5A7F8000FF7C5 /* FiveOClock */,
 				ECE47B3D1AC5A7F8000FF7C5 /* FiveOClockTests */,
 				ECE47B261AC5A7F8000FF7C5 /* Products */,
+				EC8EFD3C1AC637F000C0CC39 /* Cubano-Regular.otf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,8 +82,9 @@
 		ECE47B271AC5A7F8000FF7C5 /* FiveOClock */ = {
 			isa = PBXGroup;
 			children = (
+				ECE47B4A1AC5A8FF000FF7C5 /* Data.swift */,
 				ECE47B2A1AC5A7F8000FF7C5 /* AppDelegate.swift */,
-				ECE47B2C1AC5A7F8000FF7C5 /* ViewController.swift */,
+				ECB208021AC5EE2F002A2D09 /* ViewController.swift */,
 				ECE47B2E1AC5A7F8000FF7C5 /* Main.storyboard */,
 				ECE47B311AC5A7F8000FF7C5 /* Images.xcassets */,
 				ECE47B331AC5A7F8000FF7C5 /* LaunchScreen.xib */,
@@ -192,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8EFD3D1AC637F000C0CC39 /* Cubano-Regular.otf in Resources */,
 				ECE47B301AC5A7F8000FF7C5 /* Main.storyboard in Resources */,
 				ECE47B351AC5A7F8000FF7C5 /* LaunchScreen.xib in Resources */,
 				ECE47B321AC5A7F8000FF7C5 /* Images.xcassets in Resources */,
@@ -212,7 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE47B2D1AC5A7F8000FF7C5 /* ViewController.swift in Sources */,
+				ECE47B4B1AC5A8FF000FF7C5 /* Data.swift in Sources */,
+				ECB208031AC5EE2F002A2D09 /* ViewController.swift in Sources */,
 				ECE47B2B1AC5A7F8000FF7C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +413,7 @@
 				ECE47B461AC5A7F8000FF7C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECE47B471AC5A7F8000FF7C5 /* Build configuration list for PBXNativeTarget "FiveOClockTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				ECE47B491AC5A7F8000FF7C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
