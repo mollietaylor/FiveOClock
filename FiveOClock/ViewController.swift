@@ -8,14 +8,17 @@
 
 import UIKit
 
+// TODO: after 60 seconds, reload (label only) to show new time
+
 class ViewController: UIViewController {
     
-    var timeZonesWithTimes = [[:]]
-    var afterFiveArray = [[:]]
+    var timeZonesWithTimes = [[String:AnyObject]]()
+    var afterFiveArray = [[String:AnyObject]]()
     var afterFiveCount = 0
     var i = 0
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,16 +50,8 @@ class ViewController: UIViewController {
         
         println(afterFiveArray)
         
-        let randomIndex = arc4random_uniform(UInt32(afterFiveArray.count))
-        let randomItem = afterFiveArray[Int(randomIndex)]
+        refresh(self)
         
-        label.text = randomItem["city"] as? String
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func refresh(sender: AnyObject) {
@@ -65,17 +60,11 @@ class ViewController: UIViewController {
         let randomItem = afterFiveArray[Int(randomIndex)]
         
         label.text = randomItem["city"] as? String
+        let timeString = randomItem["time"] as? String
+        if let timeText = timeString?.componentsSeparatedByString(" ") {
+            timeLabel.text = timeText[0]
+        }
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
