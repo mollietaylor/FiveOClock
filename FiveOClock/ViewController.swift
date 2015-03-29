@@ -8,19 +8,9 @@
 
 import UIKit
 import iAd
+import StoreKit
 
-//func adBanner() -> ADBannerView {
-//    
-//    // TODO: maybe move this down into bannerViewDidLoadAd?
-//    var adBanner = ADBannerView(adType: ADAdType.Banner)
-//    
-//    adBanner.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 66)
-//    
-//    return adBanner
-//    
-//}
-
-class ViewController: UIViewController, ADBannerViewDelegate {
+class ViewController: UIViewController, UIActionSheetDelegate, ADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     var timeZonesWithTimes = [[String:AnyObject]]()
     var afterFiveArray = [[String:AnyObject]]()
@@ -31,35 +21,58 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     var resetDay:String!
     var currentHour:String!
     var currentDay:String!
+    
+    var productID = "com.proximityviz.FiveOClock.RemoveAds"
+    var adsRemoved = false
 
     @IBOutlet weak var adBanner: ADBannerView!
     @IBOutlet weak var grabADrinkLabel: UILabel!
     @IBOutlet weak var itsLabel: UILabel!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var grabConstraint: NSLayoutConstraint!
     @IBOutlet weak var itsConstraint: NSLayoutConstraint!
+    @IBOutlet weak var removeAdsButton: UIButton!
     
-    var grabConstraintDefault:CGFloat = 0
-    var itsConstraintDefault:CGFloat = 0
+    var grabConstraintDefault:CGFloat = 0 // 8
+    var itsConstraintDefault:CGFloat = 0 // 59
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(adBanner)
-        adBanner.delegate = self
+        grabConstraintDefault = grabConstraint.constant
+                itsConstraintDefault = itsConstraint.constant
         
         if view.frame.height < 568 {
             grabADrinkLabel.hidden = true
             itsLabel.text = "Grab a drink! It's"
             itsConstraint.constant -= 51
+            itsConstraintDefault -= 51
         }
         
-        grabConstraintDefault = grabConstraint.constant
-        itsConstraintDefault = itsConstraint.constant
+        timeLabel.textColor = UIColor(red:0.01, green:0.75, blue:1, alpha:1)
+        refreshButton.setTitleColor(UIColor(red:0.01, green:0.75, blue:1, alpha:1), forState: UIControlState.Normal)
+        
+        // TODO: check NSUserDefaults to see if ads have been removed
+        // if true, remove the ad button and hide the ad
+        adsRemoved = NSUserDefaults.standardUserDefaults().boolForKey("adsRemoved")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        if adsRemoved {
+            adBanner.hidden = true
+            removeAdsButton.hidden = true
+            moveAdBanner()
+            println("test")
+        } else {
+            adBanner.delegate = self
+        }
         
         refreshTimeZoneData()
         refresh(self)
+        
+        // IAP
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         
     }
     
@@ -147,17 +160,15 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         
     }
     
+    // MARK: Ads
     func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
         return true
     }
     
-    // TODO: inside here, move banner down into view
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         layoutAnimated(true)
     }
     
-    // TODO: figure out why this function isn't getting called
-    // TODO: inside here, move banner out of view
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
         
         println("failed to receive ad")
@@ -188,10 +199,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
             UIView.animateWithDuration(animated ? 0.5 : 0.0, animations: { () -> Void in
                 
                 println("banner not loaded")
-                
-                self.adBanner.frame.origin.y = -(self.adBanner.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
-                self.grabConstraint.constant = self.grabConstraintDefault - self.adBanner.frame.height
-                self.itsConstraint.constant = self.itsConstraintDefault - self.adBanner.frame.height
+                self.moveAdBanner()
                 
             })
             
@@ -199,6 +207,144 @@ class ViewController: UIViewController, ADBannerViewDelegate {
             
         }
         
+    }
+    
+    func moveAdBanner() {
+        
+        adBanner.frame.origin.y = -(adBanner.frame.height + UIApplication.sharedApplication().statusBarFrame.height)
+        grabConstraint.constant = grabConstraintDefault - adBanner.frame.height
+        itsConstraint.constant = itsConstraintDefault - adBanner.frame.height
+        println("move")
+        
+    }
+    
+    // MARK: Remove Ads
+    @IBAction func tapToRemoveAds(sender: AnyObject) {
+
+        // UIActionSheet
+        let actionSheet = UIActionSheet(title: "How would you like to remove ads?", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: "Purchase", "Restore")
+        actionSheet.showInView(view)
+        
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        
+        if buttonIndex == 0 {
+            purchase()
+        } else if buttonIndex == 1 {
+            restore()
+        }
+        
+    }
+    
+    func purchase() {
+        
+        if SKPaymentQueue.canMakePayments() {
+            
+            let productIDSet = NSSet(object: productID)
+            var productsRequest = SKProductsRequest(productIdentifiers: productIDSet)
+            productsRequest.delegate = self
+            productsRequest.start()
+            
+        } else {
+            // alert user that they can't make a purchase
+        }
+        
+    }
+    
+    func restore() {
+        SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+    }
+    
+    func buyProduct(product: SKProduct) {
+        
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.defaultQueue().addPayment(payment)
+        
+    }
+    
+    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+        
+        let count = response.products.count
+        if count > 0 {
+            
+            let validProduct = response.products[0] as SKProduct
+            if validProduct.productIdentifier == productID {
+                
+                buyProduct(validProduct)
+                
+            }
+            
+        }
+        
+    }
+    
+    func request(request: SKRequest!, didFailWithError error: NSError!) {
+        println("request failed")
+        println(error)
+    }
+    
+    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+        
+        for item in transactions {
+            if let transaction = item as? SKPaymentTransaction {
+                switch transaction.transactionState {
+                    
+                case .Purchased, .Restored:
+                    removeAds()
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                    break
+                case .Failed:
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
+                    break
+                default:
+                    break
+                    
+                }
+            }
+        }
+        
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue!) {
+        
+        for item in queue.transactions {
+            if let transaction = item as? SKPaymentTransaction {
+                if transaction.transactionState == .Restored {
+                    removeAds()
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                    break
+                }
+            }
+        }
+        
+        if queue.transactions.count == 0 {
+            println("not restored")
+            displayRestoreAlert()
+        }
+        
+    }
+    
+    func displayRestoreAlert() {
+        
+        let alertController = UIAlertController(title: "Ad removal has not been purchased on this account.", message: nil, preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func removeAds() {
+        
+        adBanner.hidden = true
+        removeAdsButton.hidden = true
+        moveAdBanner()
+        adsRemoved = true
+        
+        // once purchase is complete, set NSUserDefaults
+        NSUserDefaults.standardUserDefaults().setBool(adsRemoved, forKey: "adsRemoved")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
     }
 

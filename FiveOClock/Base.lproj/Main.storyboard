@@ -52,6 +52,7 @@
                                     <constraint firstAttribute="width" constant="79" id="YEh-8g-bpu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="46"/>
+                                <color key="tintColor" red="0.011764705882352941" green="0.75294117647058822" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -107,6 +108,19 @@
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ju6-f0-CtE">
                                 <rect key="frame" x="140" y="20" width="320" height="50"/>
                             </adBannerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftY-L0-r56">
+                                <rect key="frame" x="540" y="540" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="HBh-zw-CxW"/>
+                                    <constraint firstAttribute="height" constant="44" id="iGF-nQ-0CM"/>
+                                </constraints>
+                                <state key="normal" image="No Ads">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapToRemoveAds:" destination="WC1-hZ-n8g" eventType="touchUpInside" id="iZg-Bi-DMM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.18431372549019609" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -115,6 +129,7 @@
                             <constraint firstItem="4JL-Bu-q3U" firstAttribute="top" secondItem="Ju6-f0-CtE" secondAttribute="bottom" constant="8" id="42F-84-vAl"/>
                             <constraint firstItem="Ju6-f0-CtE" firstAttribute="top" secondItem="2cQ-r3-AlB" secondAttribute="bottom" id="5Y2-ND-2he"/>
                             <constraint firstItem="xfT-IN-AaO" firstAttribute="top" secondItem="W74-RB-DnT" secondAttribute="bottom" id="5iA-so-vow"/>
+                            <constraint firstItem="ftY-L0-r56" firstAttribute="trailing" secondItem="9cd-vT-sSX" secondAttribute="trailingMargin" id="80l-K2-96m"/>
                             <constraint firstItem="y5c-OM-m5g" firstAttribute="leading" secondItem="9cd-vT-sSX" secondAttribute="leadingMargin" constant="8" id="8tr-Mp-5y1"/>
                             <constraint firstItem="Yrc-XC-T3X" firstAttribute="top" secondItem="0C3-G9-fMm" secondAttribute="bottom" constant="8" id="FEr-U7-H2o"/>
                             <constraint firstAttribute="centerX" secondItem="gmQ-an-54Z" secondAttribute="centerX" id="Fcc-yZ-PO0"/>
@@ -126,6 +141,7 @@
                             <constraint firstItem="0C3-G9-fMm" firstAttribute="centerY" secondItem="W74-RB-DnT" secondAttribute="centerY" constant="-81" id="QNg-uE-3kX"/>
                             <constraint firstItem="0C3-G9-fMm" firstAttribute="top" secondItem="y5c-OM-m5g" secondAttribute="bottom" constant="41" id="RSy-Xi-X0m"/>
                             <constraint firstAttribute="centerX" secondItem="0C3-G9-fMm" secondAttribute="centerX" constant="20" id="S2F-jS-lwZ"/>
+                            <constraint firstItem="xfT-IN-AaO" firstAttribute="top" secondItem="ftY-L0-r56" secondAttribute="bottom" constant="16" id="SbL-Bu-g3m"/>
                             <constraint firstAttribute="centerX" secondItem="Yrc-XC-T3X" secondAttribute="centerX" id="VXP-G1-fPF"/>
                             <constraint firstItem="xTS-JQ-sv0" firstAttribute="leading" secondItem="9cd-vT-sSX" secondAttribute="leadingMargin" constant="8" id="X4O-jj-xBa"/>
                             <constraint firstItem="W74-RB-DnT" firstAttribute="leading" secondItem="9cd-vT-sSX" secondAttribute="leadingMargin" constant="-16" id="Ynn-6R-ofZ"/>
@@ -161,6 +177,8 @@
                         <outlet property="itsConstraint" destination="eLi-mk-gCU" id="HBM-Cv-ptR"/>
                         <outlet property="itsLabel" destination="y5c-OM-m5g" id="Khg-08-Ics"/>
                         <outlet property="label" destination="xTS-JQ-sv0" id="YRB-dT-ZbN"/>
+                        <outlet property="refreshButton" destination="gmQ-an-54Z" id="Jni-oR-tev"/>
+                        <outlet property="removeAdsButton" destination="ftY-L0-r56" id="2kk-fn-mmu"/>
                         <outlet property="timeLabel" destination="0C3-G9-fMm" id="jIl-z7-6si"/>
                     </connections>
                 </viewController>
@@ -170,6 +188,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="No Ads" width="44" height="44"/>
         <image name="background" width="600" height="600"/>
     </resources>
 </document>
